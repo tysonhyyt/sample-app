@@ -49,7 +49,7 @@ jobs:
           cp -r node_modules target
           cp package.json package-lock.json target
           cp -r .next target
-          cp next.config.js target
+          cp next.config.ts target
           cp -r public target
 
       - name: Upload artifact
