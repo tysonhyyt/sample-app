@@ -78,17 +78,6 @@ jobs:
           name: my-artifact
           path: target
 
-      - name: Build container
-        run: |
-          docker build -t gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA .
-
-      - name: Publish container
-        run: |
-          cd target
-          docker push gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA
-
-      
-
       # 4. Configure Docker to authenticate to Artifact Registry
       - name: Configure Docker authentication
         run: |
@@ -99,7 +88,7 @@ jobs:
       # 5. Build and push the container image
       - name: Build and push Docker image
         env:
-          IMAGE: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACTORY_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          IMAGE: ${{ env.REGION }}-docker.pkg.dev/${{ env.ARTIFACTORY_PATH }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
         run: |
           echo -e "$IMAGE"
           docker build -t "$IMAGE" .
