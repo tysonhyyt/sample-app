@@ -121,8 +121,8 @@ jobs:
             --region="$REGION" \
             --image="$IMAGE" \
             --service-account="$RUNTIME_SA" \
-            --startup-probe-path="/api/health" \
-            --liveness-probe-path="/api/health" \
+            --startup-probe="/api/health" \
+            --liveness-probe="/api/health" \
             --quiet
 
       # 7. Verify the deployed service
