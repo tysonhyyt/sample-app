@@ -5,7 +5,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=8080
 
-COPY target /app
+COPY target .
 
 RUN npm ci
 
