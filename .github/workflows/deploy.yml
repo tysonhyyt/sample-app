@@ -51,6 +51,7 @@ jobs:
           cp -r .next target
           cp next.config.ts target
           cp -r public target
+          ls -la target
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
