@@ -7,6 +7,8 @@ ENV PORT=8080
 
 COPY target /app
 
+RUN npm ci
+
 EXPOSE 8080
 
 CMD ["npm", "run", "start"]
